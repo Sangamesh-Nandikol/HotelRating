@@ -1,0 +1,5 @@
+package com.nandii.service.exceptions;
+
+public class ResourceNotFoundException extends RuntimeException {
+
+}

@@ -1,0 +1,36 @@
+package com.nandii.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nandii.service.entity.User;
+import com.nandii.service.repository.UserRepo;
+import com.nandii.service.service.UserService;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UserRepo userRepo;
+	
+	@Override
+	public User saveUser(User user) {
+		
+		return userRepo.save(user);
+	}
+
+	@Override
+	public List<User> getAllUser() {
+		
+		return userRepo.findAll();
+	}
+
+	@Override
+	public User getUser(String userid) {		
+		
+		return userRepo.findById(userid).orElseThrow();
+	}
+
+}

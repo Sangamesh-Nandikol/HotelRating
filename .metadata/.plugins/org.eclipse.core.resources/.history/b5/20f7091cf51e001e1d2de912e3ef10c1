@@ -1,0 +1,5 @@
+package com.nandii.rating.service;
+
+public interface RatingService {
+
+}

@@ -1,0 +1,5 @@
+package com.nandii.hotel.serviceimpl;
+
+public class HotelServiceImpl {
+
+}

@@ -1,0 +1,13 @@
+package com.nandii.hotel.services;
+
+import com.nandii.hotel.entity.Hotel;
+
+public interface HotelService {
+
+	//create 
+	Hotel create(Hotel hotel);
+	
+	//get all
+	
+	//get single
+}

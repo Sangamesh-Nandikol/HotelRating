@@ -1,0 +1,13 @@
+package com.nandii.service.exceptions;
+
+import org.springframework.http.ResponseEntity;
+
+import com.nandii.service.payload.ApiResponse;
+
+public class GlobelExceptionHandler {
+
+	public ResponseEntity<ApiResponse> handelerResourceNotFoundException(ResourceNotFoundException ex){
+		return null;
+		
+	}
+}
