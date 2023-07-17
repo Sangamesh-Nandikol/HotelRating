@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nandii.service.entity.User;
 import com.nandii.service.service.UserService;
 
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
 import lombok.extern.slf4j.Slf4j;
 
@@ -37,7 +38,8 @@ public class UserController {
 	int retryCount=1;
 	@GetMapping("/{userid}")
 //	@CircuitBreaker(name = "ratingHotelBreaker", fallbackMethod = "ratingHotelFallback")
-	@Retry(name = "ratingHotelService",fallbackMethod = "ratingHotelFallback")
+//	@Retry(name = "ratingHotelService",fallbackMethod = "ratingHotelFallback")
+	@RateLimiter(name = "userRateLimiter",fallbackMethod = "ratingHotelFallback")
 	public ResponseEntity<User> getSingleUser(@PathVariable String userid) {
        log.info("get single user handeler : UserController");
        log.info("Retry Count: {}",retryCount);
