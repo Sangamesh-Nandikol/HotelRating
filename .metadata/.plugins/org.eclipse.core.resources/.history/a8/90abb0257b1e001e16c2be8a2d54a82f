@@ -1,5 +1,0 @@
-package com.nandii.service.payload;
-
-public class ApiResponse {
-
-}

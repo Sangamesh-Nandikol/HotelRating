@@ -1,9 +1,0 @@
-package com.nandii.service.service;
-
-import com.nandii.service.entity.User;
-
-public interface UserService {
-
-	User saveUser(User user);
-	
-}

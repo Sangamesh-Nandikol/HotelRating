@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nandii.service.entity.User;
 import com.nandii.service.service.UserService;
 
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -34,19 +34,23 @@ public class UserController {
 	}
 	
 	// get single user
+	int retryCount=1;
 	@GetMapping("/{userid}")
-	@CircuitBreaker(name="ratingHotelBreaker",fallbackMethod = "ratingHotelFallback")
+//	@CircuitBreaker(name = "ratingHotelBreaker", fallbackMethod = "ratingHotelFallback")
+	@Retry(name = "ratingHotelService",fallbackMethod = "ratingHotelFallback")
 	public ResponseEntity<User> getSingleUser(@PathVariable String userid) {
-
+       log.info("get single user handeler : UserController");
+       log.info("Retry Count: {}",retryCount);
+       retryCount++;		
 		User user = service.getUser(userid);
 		return ResponseEntity.ok(user);
 
 	}
 	
-	//creating fallback method for circuitBreaker method
-	
+	//creating fallback method for circuitBreaker method	
 	public ResponseEntity<User> ratingHotelFallback(String userId,Exception ex){		
 		log.info("fallback is excuted because service is down",ex.getMessage());
+		
 		User user = User.builder()
 		.email("dummy@gmail.com")
 		.name("dummy")

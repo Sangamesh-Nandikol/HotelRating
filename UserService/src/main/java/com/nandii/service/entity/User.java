@@ -38,9 +38,5 @@ public class User {
 	@Transient
 	private List<Rating> rating=new ArrayList<>();
 	
-//	private String adddress;
-	
-	
-	
-
+    //	private String adddress;
 }
