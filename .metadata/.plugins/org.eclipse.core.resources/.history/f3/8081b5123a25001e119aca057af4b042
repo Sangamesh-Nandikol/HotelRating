@@ -1,0 +1,5 @@
+package com.nandii.gateway.controller;
+
+public class AuthController {
+
+}

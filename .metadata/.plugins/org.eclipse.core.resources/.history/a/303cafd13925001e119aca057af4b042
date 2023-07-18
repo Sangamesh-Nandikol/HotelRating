@@ -1,0 +1,5 @@
+package com.nandii.gateway.responsebean;
+
+public class AuthResponse {
+
+}

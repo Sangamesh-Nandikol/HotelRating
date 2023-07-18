@@ -1,5 +1,0 @@
-package com.nandii.rating.repository;
-
-public interface RatingRepo {
-
-}

@@ -1,9 +1,0 @@
-package com.nandii.hotel.exceptions;
-
-public class ResourceNotFoundException {
-
-	public ResourceNotFoundException(String ex) {
-		
-		
-	}
-}

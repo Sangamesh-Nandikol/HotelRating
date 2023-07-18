@@ -1,0 +1,13 @@
+package com.nandii.gateway.responsebean;
+
+import lombok.Data;
+
+@Data
+public class AuthResponse {
+
+	private String userId;
+	private String 	accessToken;
+	private String refreshToken;
+	private long expireAt;
+	private Colletion<String> authories; 
+}
